@@ -1,0 +1,16 @@
+# Only the skills are public. Everything else in this folder is local work:
+# Projects/ (work folders, downloaded media), Render Recipes/, Python Libs/, profile/ (private channel profile), junctions.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/skills/
+
+# inside the skills: no footage-derived demo clips, no project-specific leftovers, no caches
+skills/game-montage/gallery/
+skills/game-montage/docs/
+skills/game-montage/tools/cut_longform.py
+skills/game-montage/tools/frame.py
+__pycache__/
+*.pyc
+*.log

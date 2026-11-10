@@ -1,0 +1,13 @@
+# Core pipeline: scan -> edit list -> preview/final render -> verify.   python -m pip install -r requirements.txt
+# FFmpeg is needed too (not a Python package): run scripts/doctor.py for the install command on your system.
+numpy
+opencv-python
+soundfile
+scipy
+Pillow
+librosa
+
+# Optional, install only when you need the feature:
+# demucs            separate vocals / game music from effects (pulls in torch)
+# openai-whisper    find sung words, check voice-over
+# yt-dlp            download a song or reference clip (only with the owner's permission)
