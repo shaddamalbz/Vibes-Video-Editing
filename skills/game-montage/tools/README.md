@@ -23,6 +23,21 @@ Run them from a work folder that holds `montage.json` (`{"video": "<recording pa
 | `frame.py` | One full-resolution frame, optionally cropped, to read small text (quest names, banners) | being reworked, see below |
 | `cut_longform.py` | Merges per-chunk review logs into one cut list, snaps cuts to quiet moments, writes chapters, renders a long-form in one ffmpeg pass | being reworked, see below |
 
+## Whole recordings and checks (config-driven)
+
+These read `recordings.json` in the work folder and the game profile `<profile_dir>/games/<game>.json` through `reclib.py` (its docstring describes both files). Run them from the work folder.
+
+| Tool | What it does | Usage |
+|---|---|---|
+| `reclib.py` | Shared library: recordings, game profile, frame grabbing, template matching. Run it to print what it found | `reclib.py` |
+| `ingest.py` | Prepares a new recording: registers it, keyframe times, audio track, whole-recording sheets, HUD crops (subtitles, boss names, death candidates), optional Windows OCR | `ingest.py <tag> <video> [--game <name>] [--steps keys,audio,sheets,hud,ocr] [--force]` |
+| `sheets.py` | Labelled contact sheets: whole recording from keyframes, dense span, range, single frame, list of times, strips per window | `sheets.py all\|dense\|range\|frame\|times\|strips ...` (`-h` for each) |
+| `qa.py` | Finds unwanted screens in an edit: on the raw footage of every run, at run ends, in a rendered file; fade finder; death-candidate check | `qa.py src\|edges\|loading <runs.json>`, `qa.py video <file>...`, `qa.py fadeback <out.jpg> <SRC:end>...`, `qa.py deaths <tag>` |
+| `preflight.py` | Every check in one command with PASS / WARN / FAIL / SKIP lines and a report file; exit code 0 only without a FAIL | `preflight.py [edit folder] [--preview f] [--final f] [--min-free-gb 35]` |
+| `ocr_win.ps1` | Windows OCR over a folder of PNG crops (used by `ingest.py --steps ocr`) | called by ingest |
+
+The older single-purpose scanners in the first table predate these and keep their own constants.
+
 ## Status
 - `cut_longform.py` and `frame.py` still carry project-specific constants (recording paths, durations, chapter names) from the project they were written for and are being reworked. Do not use them as they are: read them as examples.
 - The "template" tools and `split_music.py` have hard-coded crop boxes, reference-frame names or offsets from one game; check the constants at the top of each file before running.
