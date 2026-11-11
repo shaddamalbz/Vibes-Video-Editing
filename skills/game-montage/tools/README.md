@@ -34,6 +34,7 @@ These read `recordings.json` in the work folder and the game profile `<profile_d
 | `sheets.py` | Labelled contact sheets: whole recording from keyframes, dense span, range, single frame, list of times, strips per window | `sheets.py all\|dense\|range\|frame\|times\|strips ...` (`-h` for each) |
 | `qa.py` | Finds unwanted screens in an edit: on the raw footage of every run, at run ends, in a rendered file; fade finder; death-candidate check | `qa.py src\|edges\|loading <runs.json>`, `qa.py video <file>...`, `qa.py fadeback <out.jpg> <SRC:end>...`, `qa.py deaths <tag>` |
 | `preflight.py` | Every check in one command with PASS / WARN / FAIL / SKIP lines and a report file; exit code 0 only without a FAIL | `preflight.py [edit folder] [--preview f] [--final f] [--min-free-gb 35]` |
+| `thumb.py` | Thumbnails and covers: Shorts cover + 3:4 cover with title and two-line hook, 16:9 thumbnail, text-free cover, in-game photo polish, subtitle removal from a frame. Style from the game profile's `"thumb"` section | `thumb.py short\|long\|cover\|photo\|clean ...` (`-h` for each) |
 | `ocr_win.ps1` | Windows OCR over a folder of PNG crops (used by `ingest.py --steps ocr`) | called by ingest |
 
 The older single-purpose scanners in the first table predate these and keep their own constants.
