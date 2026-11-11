@@ -8,7 +8,8 @@ No video editor is involved. Everything is FFmpeg + Python, and every editing de
 
 | Skill | What it does |
 |---|---|
-| [`game-montage`](skills/game-montage/SKILL.md) | Beat-synced 9:16 Shorts and 16:9 long-form cuts from game recordings: moment finding, song analysis, effects and transitions by name, audio mix, render recipes for re-rendering later |
+| [`game-montage`](skills/game-montage/SKILL.md) | Beat-synced 9:16 Shorts and 16:9 long-form cuts from game recordings: moment finding, song analysis, effects and transitions by name, audio mix, render recipes for re-rendering later; whole-recording prep, pre-render checks, a 9:16 compositor, thumbnails |
+| [`studio-upload`](skills/studio-upload/SKILL.md) | Uploads finished videos through YouTube Studio (TikTok not verified yet) in your own signed-in browser: validated upload pack, one confirmation table, duplicate check, upload log. Needs a browser-automation tool such as the Chrome DevTools MCP server |
 
 ## Use it
 
